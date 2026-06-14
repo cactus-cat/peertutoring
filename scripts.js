@@ -58,7 +58,12 @@ function loadAdvices() {
     const scriptUrl = 'https://script.google.com/macros/s/AKfycbzqQjIgjSG-mgE6vnpprKWVzxFHw9J2h1nJUX3rJRBkNyiyXJKgTn21qpPCSOQFCQKznQ/exec';
     
     fetch(scriptUrl)
-        .then(res => res.json())
+        .then(res => {
+            if (!res.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return res.json();
+        })
         .then(data => {
             if (Array.isArray(data.advices)) {
                 data.advices.forEach(advice => {
