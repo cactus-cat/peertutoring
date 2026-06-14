@@ -1,0 +1,9 @@
+{
+	"name": "peer-tutoring-website",
+	"version": "1.0.0",
+	"description": "Simple peer tutoring site with advice submission backend",
+	"main": "server.js",
+	"scripts": {},
+	"dependencies": {},
+	"devDependencies": {}
+}
