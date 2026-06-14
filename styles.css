@@ -44,16 +44,6 @@ header::before {
     z-index: 1;
 }
 
-.tagline {
-    font-size: 18px;
-    opacity: 0.92;
-    max-width: 700px;
-    margin: 0 auto 18px;
-    line-height: 1.6;
-    position: relative;
-    z-index: 1;
-}
-
 .subheader {
     font-size: 17px;
     color: rgba(255,255,255,0.85);
