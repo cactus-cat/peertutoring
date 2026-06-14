@@ -33,7 +33,7 @@ function submitAdvice(event) {
     const formData = new FormData();
     formData.append('Advice', adviceText);
 
-    const scriptUrl = 'https://script.google.com/macros/s/AKfycbyUffL23URWVE2dLc8t7vSb5lzWSlh1H79Cfumceuta2UJXOKzC-s3yJVUtK14c43wPjw/exec';
+    const scriptUrl = 'https://script.google.com/macros/s/AKfycbzqQjIgjSG-mgE6vnpprKWVzxFHw9J2h1nJUX3rJRBkNyiyXJKgTn21qpPCSOQFCQKznQ/exec';
     
     fetch(scriptUrl, {
         method: 'POST',
@@ -54,7 +54,8 @@ function submitAdvice(event) {
 
 function loadAdvices() {
     const adviceList = document.getElementById('added-advice-list');
-    const scriptUrl = 'https://script.google.com/macros/s/AKfycbxhX9N5l4JU3Z1LK_jZ430fIiHf78yuWtyVIfqXz05e34E3EvJcTg9-9z_1CCGvKoxUMg/exec';
+    adviceList.innerHTML = '';
+    const scriptUrl = 'https://script.google.com/macros/s/AKfycbzqQjIgjSG-mgE6vnpprKWVzxFHw9J2h1nJUX3rJRBkNyiyXJKgTn21qpPCSOQFCQKznQ/exec';
     
     fetch(scriptUrl)
         .then(res => res.json())
