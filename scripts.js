@@ -16,7 +16,6 @@ function submitAdvice(event) {
     event.preventDefault();
     const password = document.getElementById('advice-password').value;
     const adviceText = document.getElementById('advice-text').value.trim();
-    const adviceList = document.getElementById('added-advice-list');
 
     if (!adviceText) {
         alert('Please enter your advice before submitting.');
@@ -30,12 +29,26 @@ function submitAdvice(event) {
         return false;
     }
 
-    const newAdvice = document.createElement('li');
-    newAdvice.textContent = adviceText;
-    adviceList.appendChild(newAdvice);
+    // Send to Google Sheet
+    const formData = new FormData();
+    formData.append('Advice', adviceText);
 
-    document.getElementById('advice-form').reset();
-    alert('Your advice has been added. Thank you!');
+    const scriptUrl = 'https://script.google.com/macros/s/AKfycbyUffL23URWVE2dLc8t7vSb5lzWSlh1H79Cfumceuta2UJXOKzC-s3yJVUtK14c43wPjw/exec';
+    
+    fetch(scriptUrl, {
+        method: 'POST',
+        body: formData
+    })
+    .then(res => {
+        alert('Your advice has been submitted. Thank you!');
+        document.getElementById('advice-form').reset();
+        loadAdvices(); // Reload the advice list
+    })
+    .catch(err => {
+        console.error('Error submitting advice', err);
+        alert('There was an error submitting your advice. Please try again.');
+    });
+
     return false;
 }
 

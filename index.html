@@ -90,25 +90,43 @@
       <h2>Advice</h2>
       <button class="toggle-btn" onclick="toggleContent(this)">Show Details</button>
       <div class="content-box">
-        <ul id="added-advice-list"></ul>
+        <ul>
+          <li>Try to get to know the student so that you can tailor your tutoring to their needs.</li>
+          <li>Be patient and understanding, especially when students are struggling.</li>
+          <li>Use a variety of teaching methods to cater to different learning styles.</li>
+        </ul>
       </div>
     </section>
 
-    <!-- Form to Submit Advice -->
-    <section class="content-section">
-      <h2>Submit Your Advice</h2>
+    <!-- Advice Form Section -->
+    <div class="advice-form-section">
+      <h3>Share Your Advice</h3>
       <form id="advice-form" onsubmit="submitAdvice(event)">
-        <div class="form-group">
-          <label for="advice-password">Password:</label>
-          <input type="password" id="advice-password" placeholder="Enter password" required>
-        </div>
-        <div class="form-group">
-          <label for="advice-text">Your Advice:</label>
-          <textarea id="advice-text" placeholder="Share your tutoring advice..." rows="5" required></textarea>
-        </div>
-        <button type="submit">Submit Advice</button>
+        <label for="advice-password">Password:</label>
+        <input 
+          type="password" 
+          id="advice-password" 
+          placeholder="Enter password" 
+          required
+        >
+        
+        <label for="advice-text">Your Advice:</label>
+        <textarea 
+          id="advice-text" 
+          placeholder="Share your tutoring advice..." 
+          required
+        ></textarea>
+        
+        <p class="form-note">Your advice will be added to the list and saved to the database.</p>
+        <button type="submit" class="toggle-btn">Submit Advice</button>
       </form>
-    </section>
+    </div>
+
+    <!-- Advice Added Section -->
+    <div class="advice-added">
+      <h3>Community Advice</h3>
+      <ul id="added-advice-list"></ul>
+    </div>
   </main>
   <script src="scripts.js"></script>
 </body>
