@@ -44,16 +44,6 @@ header::before {
     z-index: 1;
 }
 
-.tagline {
-    font-size: 18px;
-    opacity: 0.92;
-    max-width: 700px;
-    margin: 0 auto 18px;
-    line-height: 1.6;
-    position: relative;
-    z-index: 1;
-}
-
 .subheader {
     font-size: 17px;
     color: rgba(255,255,255,0.85);
@@ -236,36 +226,70 @@ main {
 .advice-form-section input,
 .advice-form-section textarea {
     width: 100%;
-    border: 1px solid rgba(18, 78, 138, 0.25);
+    border: 2px solid rgba(18, 78, 138, 0.2);
     border-radius: 12px;
-    padding: 12px 14px;
+    padding: 14px 16px;
     font-size: 15px;
     color: #1c3b63;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.98);
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.advice-form-section input:focus,
+.advice-form-section textarea:focus {
+    outline: none;
+    border-color: #126fb4;
+    box-shadow: 0 0 0 3px rgba(18, 111, 180, 0.1);
+    background: white;
+}
+
+.advice-form-section input::placeholder,
+.advice-form-section textarea::placeholder {
+    color: #8b9daa;
 }
 
 .advice-form-section textarea {
     resize: vertical;
+    min-height: 120px;
 }
 
 .advice-form-section .form-note {
-    color: #4a647f;
+    color: #5a7a8f;
     font-size: 13px;
-    margin-top: -8px;
+    margin-top: -6px;
+    font-style: italic;
+    opacity: 0.85;
 }
 
 .advice-added h3 {
-    margin-top: 22px;
+    margin-top: 28px;
     color: #0f3f6e;
-    font-size: 18px;
+    font-size: 20px;
+    font-weight: 700;
+    border-bottom: 2px solid #126fb4;
+    padding-bottom: 12px;
 }
 
 #advice-form .toggle-btn {
     width: fit-content;
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #126fb4 0%, #0f4c81 100%);
+    box-shadow: 0 4px 12px rgba(18, 78, 138, 0.25);
+    transition: all 0.3s ease;
 }
 
 #advice-form .toggle-btn:hover {
-    background-color: #0e3d79;
+    background: linear-gradient(135deg, #0f4c81 0%, #0a3a5f 100%);
+    box-shadow: 0 6px 18px rgba(18, 78, 138, 0.35);
+    transform: translateY(-2px);
+}
+
+#advice-form .toggle-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(18, 78, 138, 0.2);
 }
 
 #advice-form + .advice-added ul {
@@ -275,7 +299,12 @@ main {
 
 #advice-form + .advice-added ul li {
     color: #2b4a6f;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    padding: 12px;
+    background: rgba(18, 111, 180, 0.05);
+    border-left: 3px solid #126fb4;
+    border-radius: 8px;
+    line-height: 1.6;
 }
 
 .content-box li {
