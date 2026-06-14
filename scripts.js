@@ -23,7 +23,7 @@ function submitAdvice(event) {
         return false;
     }
 
-    const correctPassword = 'tutor2026';
+    const correctPassword = 'tammytutor.';
 
     if (password !== correctPassword) {
         alert('Incorrect password. Please try again.');
@@ -41,13 +41,15 @@ function submitAdvice(event) {
 
 function loadAdvices() {
     const adviceList = document.getElementById('added-advice-list');
-    fetch('/api/get-advices')
+    const scriptUrl = 'https://script.google.com/macros/s/AKfycbxhX9N5l4JU3Z1LK_jZ430fIiHf78yuWtyVIfqXz05e34E3EvJcTg9-9z_1CCGvKoxUMg/exec';
+    
+    fetch(scriptUrl)
         .then(res => res.json())
         .then(data => {
-            if (data.success && Array.isArray(data.advices)) {
-                data.advices.forEach(a => {
+            if (Array.isArray(data.advices)) {
+                data.advices.forEach(advice => {
                     const li = document.createElement('li');
-                    li.textContent = a.advice;
+                    li.textContent = advice;
                     adviceList.appendChild(li);
                 });
             }
